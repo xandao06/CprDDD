@@ -1,6 +1,7 @@
 ﻿using Domain.DomainEntities;
-using Domain.Enums;
+using Domain.Enums.Chamado;
 using NUnit.Framework;
+using Action = Domain.Enums.Action;
 
 namespace DomainTests.Chamados
 {
@@ -25,7 +26,9 @@ namespace DomainTests.Chamados
         {
             var chamado = new Chamado();
 
-            Assert.Pass();
+            chamado.ChangeState(Action.Encerrar);
+
+            Assert.That(chamado.CurrentStatus, Is.EqualTo(Status.Encerrado));
         }
     }
 }

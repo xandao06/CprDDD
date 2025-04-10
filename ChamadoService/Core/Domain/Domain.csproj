@@ -9,7 +9,7 @@
   <ItemGroup>
     <Folder Include="DomainExceptions\" />
     <Folder Include="DomainEvents\" />
-    <Folder Include="ValueObjetcs\" />
+    <Folder Include="ValueObjetcs\Chamado\" />
   </ItemGroup>
 
 </Project>

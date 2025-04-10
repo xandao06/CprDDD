@@ -1,5 +1,4 @@
-﻿
-using Domain.Enums;
+﻿using Domain.Enums.Chamado;
 using Action = Domain.Enums.Action;
 
 namespace Domain.DomainEntities
