@@ -1,4 +1,4 @@
-﻿using Domain.DomainEntities;
+﻿using Domain.Entities;
 using Domain.Enums.Chamado;
 using NUnit.Framework;
 using Action = Domain.Enums.Action;

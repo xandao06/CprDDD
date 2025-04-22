@@ -1,7 +1,7 @@
 ﻿using Domain.Enums.Chamado;
 using Action = Domain.Enums.Action;
 
-namespace Domain.DomainEntities
+namespace Domain.Entities
 {
     public class Chamado
     {

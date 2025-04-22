@@ -1,5 +1,5 @@
 ﻿
-using Domain.DomainEntities;
+using Domain.Entities;
 
 namespace Domain.Ports
 {
