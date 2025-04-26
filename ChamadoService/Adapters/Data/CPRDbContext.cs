@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Data.Cliente;
+using Microsoft.EntityFrameworkCore;
 using Entities = Domain.Entities;
 
 namespace Data
@@ -10,7 +11,6 @@ namespace Data
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new ClienteConfiguration());
-            //modelBuilder.ApplyConfigurationsFromAssembly(typeof(CPRDbContext).Assembly);
         }
 
         public virtual DbSet<Entities.Cliente> Clientes { get; set; }

@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Entities = Domain.Entities;
 
-namespace Data
+namespace Data.Cliente
 {
     public class ClienteConfiguration : IEntityTypeConfiguration<Entities.Cliente>
     {
@@ -18,7 +18,16 @@ namespace Data
                 .Property(x => x.PessoaFisicaInfo);
 
             builder.OwnsOne(x => x.ClienteTypeId)
-                .Property(x => x.GenericoInfo);
+                .Property(x => x.Endereco);
+
+            builder.OwnsOne(x => x.ClienteTypeId)
+                .Property(x => x.Bairro);
+
+            builder.OwnsOne(x => x.ClienteTypeId)
+                .Property(x => x.CEP);
+
+            builder.OwnsOne(x => x.ClienteTypeId)
+                .Property(x => x.Telefone);
         }
     }
 }
