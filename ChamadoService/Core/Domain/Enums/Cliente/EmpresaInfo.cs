@@ -2,9 +2,9 @@
 {
     public enum EmpresaInfo
     {
-        RazaoSocial = 0,
-        Fantasia = 1,
-        CNPJ = 2,
-        InscricaoEstadual = 3,
+        RazaoSocial = 1,
+        Fantasia = 2,
+        CNPJ = 3,
+        InscricaoEstadual = 4,
     }
 }
