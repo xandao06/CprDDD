@@ -6,6 +6,8 @@ namespace Application
     {
         NOT_FOUND = 1,
         COULD_NOT_STORE_DATA = 2,
+        INVALID_CLIENT_TYPE = 3,
+        MISSING_REQUIRED_INFORMATION = 4,
     }
     public abstract class Response
     {

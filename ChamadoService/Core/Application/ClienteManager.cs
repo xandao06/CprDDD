@@ -2,6 +2,7 @@
 using Application.Cliente.Ports;
 using Application.Cliente.Requests;
 using Application.Cliente.Responses;
+using Domain.Exceptions;
 using Domain.Ports;
 
 namespace Application
@@ -20,7 +21,9 @@ namespace Application
             {
                 var cliente = ClienteDTO.MapToEntity(request.Data);
 
-                request.Data.Id = await _clienteRepository.Criar(cliente);
+                await cliente.Save(_clienteRepository);
+
+                request.Data.Id = cliente.Id;
 
                 return new ClienteResponse
                 {
@@ -28,6 +31,27 @@ namespace Application
                     Success = true,
                 };
             }
+
+            catch (InvalidClientTypeException)
+            {
+                return new ClienteResponse
+                {
+                    Success = false,
+                    ErrorCode = ErrorCodes.INVALID_CLIENT_TYPE,
+                    Message = "Tipo do cliente não pode ser nulo"
+                };
+            }
+
+            catch (MissingRequiredInformation)
+            {
+                return new ClienteResponse
+                {
+                    Success = false,
+                    ErrorCode = ErrorCodes.MISSING_REQUIRED_INFORMATION,
+                    Message = "Faltando informações necessárias"
+                };
+            }
+
             catch (Exception)
             {
                 return new ClienteResponse
@@ -37,7 +61,7 @@ namespace Application
                     Message = "Ocorreu um erro ao salvar no banco"
                 };
             }
-            
+
         }
     }
 }

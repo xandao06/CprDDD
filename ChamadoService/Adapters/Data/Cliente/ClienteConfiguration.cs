@@ -9,13 +9,8 @@ namespace Data.Cliente
         public void Configure(EntityTypeBuilder<Entities.Cliente> builder)
         {
             builder.HasKey(x => x.Id);
-            builder.OwnsOne(x => x.ClienteTypeId);
-
             builder.OwnsOne(x => x.ClienteTypeId)
-                .Property(x => x.EmpresaInfo);
-
-            builder.OwnsOne(x => x.ClienteTypeId)
-                .Property(x => x.PessoaFisicaInfo);
+                    .Property(x => x.ClienteTypeInfo);
 
             builder.OwnsOne(x => x.ClienteTypeId)
                 .Property(x => x.Endereco);

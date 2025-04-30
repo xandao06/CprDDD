@@ -1,5 +1,7 @@
 ﻿using Domain.Exceptions;
 using Domain.Ports;
+using Domain.Shared;
+using Domain.Shared.Cliente;
 using Domain.ValueObjetcs.Cliente;
 
 namespace Domain.Entities
@@ -13,16 +15,32 @@ namespace Domain.Entities
         private void ValidateState()
         {
             if (ClienteTypeId == null ||
-                    ClienteTypeId.Telefone.Length <= 10 ||
-                    ClienteTypeId.CEP.Length <= 8)
+                ClienteTypeId.ClienteTypeInfo == 0 ||
+                Contrato == null)
             {
                 throw new InvalidClientTypeException();
             }
 
-            if (Contrato == null)
+            if (Utils.ValidateTelefone(this.ClienteTypeId.Telefone) == false)
             {
                 throw new MissingRequiredInformation();
             }
+
+            if (Utils.ValidateCNPJ(this.ClienteTypeId.ClienteTypeInfo. == false)
+            {
+                throw new MissingRequiredInformation();
+            }
+
+            if (Utils.ValidateTelefone(this.ClienteTypeId.Telefone) == false)
+            {
+                throw new MissingRequiredInformation();
+            }
+
+            if (Utils.ValidateTelefone(this.ClienteTypeId.Telefone) == false)
+            {
+                throw new MissingRequiredInformation();
+            }
+
         }
         public async Task Save(IClienteRepository clienteRepository)
         {

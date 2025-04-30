@@ -4,8 +4,7 @@ namespace Domain.ValueObjetcs.Cliente
 {
     public class ClienteInfo
     {
-        public EmpresaInfo EmpresaInfo { get; set; }
-        public PessoaFisicaInfo PessoaFisicaInfo { get; set;}
+        public ClienteTypeInfo ClienteTypeInfo { get; set; }
         public string Endereco { get; set; }
         public string Bairro { get; set; }
         public string CEP { get; set; }

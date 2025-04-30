@@ -12,8 +12,7 @@ namespace Application.Cliente.DTO
         public string Bairro { get; set; }
         public string CEP { get; set; }
         public string Telefone { get; set; }
-        public int IdEmpresa { get; set; }
-        public int IdPessoaFisica { get; set; }
+        public int ClienteTypeId { get; set; }
 
         public static Entities.Cliente MapToEntity(ClienteDTO clienteDTO)
         {
@@ -27,8 +26,7 @@ namespace Application.Cliente.DTO
                     Bairro = clienteDTO.Bairro,
                     CEP = clienteDTO.CEP,
                     Telefone = clienteDTO.Telefone,
-                    EmpresaInfo = (EmpresaInfo)clienteDTO.IdEmpresa,
-                    PessoaFisicaInfo = (PessoaFisicaInfo)clienteDTO.IdPessoaFisica
+                    ClienteTypeInfo = (ClienteTypeInfo)clienteDTO.ClienteTypeId,
                 }
             };
         }
