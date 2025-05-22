@@ -1,8 +1,7 @@
 ﻿using Domain.Exceptions;
 using Domain.Ports;
-using Domain.Shared;
 using Domain.Shared.Cliente;
-using Domain.ValueObjetcs.Cliente;
+using Domain.ValueObjects.Cliente;
 
 namespace Domain.Entities
 {
@@ -10,37 +9,23 @@ namespace Domain.Entities
     {
         public int Id { get; set; }
         public string Contrato { get; set; }
-        public ClienteInfo ClienteTypeId { get; set; }
+        public ClienteInfo ClienteInfo { get; set; }
+
+        public Cliente(int id, string contrato, ClienteInfo clienteInfo) 
+        {
+            Id = id;
+            Contrato = contrato;
+            ClienteInfo = clienteInfo;
+        }
 
         private void ValidateState()
         {
-            if (ClienteTypeId == null ||
-                ClienteTypeId.ClienteTypeInfo == 0 ||
-                Contrato == null)
-            {
-                throw new InvalidClientTypeException();
-            }
 
-            if (Utils.ValidateTelefone(this.ClienteTypeId.Telefone) == false)
-            {
-                throw new MissingRequiredInformation();
-            }
+            if (ClienteInfo.EmpresaInfo is null && ClienteInfo.PessoaFisicaInfo is null)
+                throw new MissingRequiredInformation("É preciso informar empresa ou pessoa física");
 
-            if (Utils.ValidateCNPJ(this.ClienteTypeId.ClienteTypeInfo. == false)
-            {
-                throw new MissingRequiredInformation();
-            }
-
-            if (Utils.ValidateTelefone(this.ClienteTypeId.Telefone) == false)
-            {
-                throw new MissingRequiredInformation();
-            }
-
-            if (Utils.ValidateTelefone(this.ClienteTypeId.Telefone) == false)
-            {
-                throw new MissingRequiredInformation();
-            }
-
+            if (ClienteInfo.EmpresaInfo is not null && ClienteInfo.PessoaFisicaInfo is not null)
+                throw new InvalidClientTypeException("Não pode ser Pessoa Física e Empresa ao mesmo tempo");
         }
         public async Task Save(IClienteRepository clienteRepository)
         {

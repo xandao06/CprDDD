@@ -22,16 +22,24 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<ClienteDTO>> Post(ClienteDTO cliente)
-        {
-            var request = new CriarClienteRequest
-            {
-                Data = cliente
-            };
+        //public async Task<ActionResult<ClienteDTO>> Post(ClienteDTO cliente)
+        //{
+        //    var request = new CriarClienteRequest
+        //    {
+        //        ClienteData = cliente
+        //    };
 
+        //    var res = await _clienteManager.CriarCliente(request);
+
+        //    if (res.Success) return Created("", res.ClienteData);
+
+        public async Task<ActionResult<ClienteDTO>> Post([FromBody] ClienteDTO clienteDTO)
+        {
+            var request = new CriarClienteRequest { ClienteData = clienteDTO };
             var res = await _clienteManager.CriarCliente(request);
 
-            if (res.Success) return Created("", res.Data);
+            if (res.Success)
+                return CreatedAtAction(nameof(Post), new { id = res.ClienteData.Id }, res.ClienteData);
 
             if (res.ErrorCode == ErrorCodes.NOT_FOUND)
             {

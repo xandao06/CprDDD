@@ -5,7 +5,7 @@
 namespace Data.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class Quarta : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -17,12 +17,16 @@ namespace Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Contrato = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ClienteTypeId_EmpresaInfo = table.Column<int>(type: "int", nullable: true),
-                    ClienteTypeId_PessoaFisicaInfo = table.Column<int>(type: "int", nullable: true),
-                    ClienteTypeId_Endereco = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ClienteTypeId_Bairro = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ClienteTypeId_CEP = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ClienteTypeId_Telefone = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    RazaoSocial = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Fantasia = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CNPJ = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    InscricaoEstadual = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Nome = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CPF = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Endereco = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Bairro = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CEP = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Telefone = table.Column<string>(type: "nvarchar(max)", nullable: true)
                 },
                 constraints: table =>
                 {

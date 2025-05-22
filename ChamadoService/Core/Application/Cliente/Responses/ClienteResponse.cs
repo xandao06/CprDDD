@@ -5,6 +5,6 @@ namespace Application.Cliente.Responses
 {
     public class ClienteResponse : Response
     {
-        public ClienteDTO Data;
+        public ClienteDTO ClienteData;
     }
 }

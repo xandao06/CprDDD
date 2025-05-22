@@ -1,8 +1,4 @@
-﻿using Domain.Enums.Cliente;
-using Domain.ValueObjetcs.Cliente;
-using Entities = Domain.Entities;
-
-namespace Application.Cliente.DTO
+﻿namespace Application.Cliente.DTO
 {
     public class ClienteDTO
     {
@@ -12,23 +8,9 @@ namespace Application.Cliente.DTO
         public string Bairro { get; set; }
         public string CEP { get; set; }
         public string Telefone { get; set; }
-        public int ClienteTypeId { get; set; }
+        public EmpresaInfoDTO EmpresaInfo { get; set; }
+        public PessoaFisicaInfoDTO PessoaFisicaInfo { get; set; }
 
-        public static Entities.Cliente MapToEntity(ClienteDTO clienteDTO)
-        {
-            return new Entities.Cliente
-            {
-                Id = clienteDTO.Id,
-                Contrato = clienteDTO.Contrato,
-                ClienteTypeId = new ClienteInfo
-                {
-                    Endereco = clienteDTO.Endereco,
-                    Bairro = clienteDTO.Bairro,
-                    CEP = clienteDTO.CEP,
-                    Telefone = clienteDTO.Telefone,
-                    ClienteTypeInfo = (ClienteTypeInfo)clienteDTO.ClienteTypeId,
-                }
-            };
         }
     }
-}
+

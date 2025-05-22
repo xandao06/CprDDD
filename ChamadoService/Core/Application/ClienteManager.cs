@@ -1,4 +1,5 @@
 ﻿using Application.Cliente.DTO;
+using Application.Cliente.Mappers;
 using Application.Cliente.Ports;
 using Application.Cliente.Requests;
 using Application.Cliente.Responses;
@@ -19,15 +20,15 @@ namespace Application
         {
             try
             {
-                var cliente = ClienteDTO.MapToEntity(request.Data);
+                var cliente = request.ClienteData.ToDomain();
 
                 await cliente.Save(_clienteRepository);
 
-                request.Data.Id = cliente.Id;
+                request.ClienteData.Id = cliente.Id;
 
                 return new ClienteResponse
                 {
-                    Data = request.Data,
+                    ClienteData = request.ClienteData,
                     Success = true,
                 };
             }

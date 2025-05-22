@@ -4,6 +4,8 @@ namespace Application.Cliente.Requests
 {
     public class CriarClienteRequest
     {
-        public ClienteDTO Data;
+        public ClienteDTO ClienteData { get; set; }
+        public PessoaFisicaInfoDTO PessoaFisicaData { get; set; }
+        public EmpresaInfoDTO EmpresaInfoData { get; set; }
     }
 }
