@@ -11,6 +11,8 @@ namespace Domain.Entities
         public string Contrato { get; set; }
         public ClienteInfo ClienteInfo { get; set; }
 
+        private Cliente() { }
+
         public Cliente(int id, string contrato, ClienteInfo clienteInfo) 
         {
             Id = id;

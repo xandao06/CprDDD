@@ -1,4 +1,4 @@
-﻿using Application.Cliente.DTO;
+﻿using Application.Cliente.Dto;
 using Application.Cliente.Ports;
 using Application.Cliente.Requests;
 using Microsoft.AspNetCore.Mvc;
@@ -22,7 +22,7 @@ namespace API.Controllers
         }
 
         [HttpPost]
-        //public async Task<ActionResult<ClienteDTO>> Post(ClienteDTO cliente)
+        //public async Task<ActionResult<ClienteDto>> Post(ClienteDto cliente)
         //{
         //    var request = new CriarClienteRequest
         //    {
@@ -33,10 +33,12 @@ namespace API.Controllers
 
         //    if (res.Success) return Created("", res.ClienteData);
 
-        public async Task<ActionResult<ClienteDTO>> Post([FromBody] ClienteDTO clienteDTO)
+        public async Task<ActionResult<ClienteDto>> Post([FromBody] CriarClienteDto criarDto)
         {
-            var request = new CriarClienteRequest { ClienteData = clienteDTO };
+            var request = new CriarClienteRequest { ClienteData = criarDto };
             var res = await _clienteManager.CriarCliente(request);
+
+            //if (res.Success) return Created("", res.ClienteData);
 
             if (res.Success)
                 return CreatedAtAction(nameof(Post), new { id = res.ClienteData.Id }, res.ClienteData);

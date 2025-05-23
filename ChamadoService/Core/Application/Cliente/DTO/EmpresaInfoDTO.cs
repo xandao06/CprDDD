@@ -1,6 +1,6 @@
-﻿namespace Application.Cliente.DTO
+﻿namespace Application.Cliente.Dto
 {
-    public class EmpresaInfoDTO
+    public class EmpresaInfoDto
     {
         public string RazaoSocial { get; set; }
         public string Fantasia { get; set; }

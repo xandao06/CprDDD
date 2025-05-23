@@ -1,10 +1,10 @@
-﻿using Application.Cliente.DTO;
+﻿using Application.Cliente.Dto;
 
 
 namespace Application.Cliente.Responses
 {
     public class ClienteResponse : Response
     {
-        public ClienteDTO ClienteData;
+        public ClienteDto ClienteData;
     }
 }

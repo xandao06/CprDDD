@@ -1,5 +1,4 @@
-﻿using Application.Cliente.DTO;
-using Application.Cliente.Mappers;
+﻿using Application.Cliente.Mappers;
 using Application.Cliente.Ports;
 using Application.Cliente.Requests;
 using Application.Cliente.Responses;
@@ -20,16 +19,19 @@ namespace Application
         {
             try
             {
-                var cliente = request.ClienteData.ToDomain();
+                // 1) Criar domínio
+                var entidade = request.ClienteData.ToDomain();
 
-                await cliente.Save(_clienteRepository);
+                // 2) Salvar (sempre .Id==0 no construtor sem Id)
+                await entidade.Save(_clienteRepository);
 
-                request.ClienteData.Id = cliente.Id;
+                // 3) Converter para DTO de resposta
+                var dto = entidade.ToDto();
 
                 return new ClienteResponse
                 {
-                    ClienteData = request.ClienteData,
                     Success = true,
+                    ClienteData = dto
                 };
             }
 
@@ -62,7 +64,6 @@ namespace Application
                     Message = "Ocorreu um erro ao salvar no banco"
                 };
             }
-
         }
     }
 }

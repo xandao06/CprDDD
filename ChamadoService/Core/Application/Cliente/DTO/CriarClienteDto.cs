@@ -1,8 +1,7 @@
 ﻿namespace Application.Cliente.Dto
 {
-    public class ClienteDto
+    public class CriarClienteDto
     {
-        public int Id { get; set; }
         public string Contrato { get; set; }
         public string Endereco { get; set; }
         public string Bairro { get; set; }
