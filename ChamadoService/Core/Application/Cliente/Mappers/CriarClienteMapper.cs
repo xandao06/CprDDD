@@ -9,19 +9,19 @@ namespace Application.Cliente.Mappers
     {
         public static Entities.Cliente ToDomain(this CriarClienteDto dto)
         {
-            var empresaVo = dto.EmpresaInfo?.ToDomain();            // ext. method EmpresaInfoDto→VO
-            var pessoaVo = dto.PessoaFisicaInfo?.ToDomain();        // ext. method PessoaFisicaInfoDto→VO
+            // sub‐DTOS → VOs
+            var empresaVo = dto.EmpresaInfo?.ToDomain();
+            var pessoaVo = dto.PessoaFisicaInfo?.ToDomain();
 
+            // VO principal
             var info = new ClienteInfo(
-              empresaVo,
-              pessoaVo,
-              dto.Endereco,
-              dto.Bairro,
-              dto.CEP,
-              dto.Telefone
-            );
+                empresaVo, pessoaVo,
+                dto.Endereco,
+                dto.Bairro,
+                dto.CEP,
+                dto.Telefone);
 
-            // usa o construtor que não leva Id
+            // usa o construtor (sem Id)
             return new Entities.Cliente(dto.Contrato, info);
         }
     }

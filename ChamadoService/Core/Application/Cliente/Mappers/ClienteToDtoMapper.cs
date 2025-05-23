@@ -1,11 +1,11 @@
 ﻿using Application.Cliente.Dto;
-using Domain.Entities;
+using Entities = Domain.Entities;
 
 namespace Application.Cliente.Mappers
 {
     public static class ClienteToDtoMapper
     {
-        public static ClienteDto ToDto(this Cliente entidade)
+        public static ClienteDto ToDto(this Entities.Cliente entidade)
         {
             return new ClienteDto
             {

@@ -5,7 +5,7 @@ VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "cprddd.client", "cprddd.client\cprddd.client.esproj", "{178352EE-B159-4E1D-AD26-2EF9139C221B}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ChamadoService", "ChamadoService", "{75A30E1A-C232-4178-A70F-B748C6A74240}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ClienteService", "ClienteService", "{75A30E1A-C232-4178-A70F-B748C6A74240}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{233B35F1-A166-43D2-A18B-B3D27FDC0FB3}"
 EndProject
